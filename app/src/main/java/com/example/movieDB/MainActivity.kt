@@ -1,10 +1,11 @@
-
+package com.example.movieDB
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.rkpandey.flixster.Movie
+import com.rkpandey.flixster.MovieAdapter
 import okhttp3.Headers
 import org.json.JSONException
 
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layout.activity_main)
+        setContentView(com.example.movieDB.R.layout.activity_main)
 
         val movieAdapter = MovieAdapter(this, movies)
 
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
                 Log.i(TAG, "onSuccess: JSON data $json")
                 try {
                     val movieDataArray = json.jsonObject.getJSONArray("results")
-                    movies.add(Movie.fromJsonArray(movieDataArray))
+                    movies.addAll(Movie.fromJsonArray(movieDataArray))
                     Log.i(TAG, "MOVIES LIST $movies")
                 } catch(e: JSONException) {
                     Log.e(TAG, "Error $e")
