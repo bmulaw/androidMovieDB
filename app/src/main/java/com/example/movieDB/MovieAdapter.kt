@@ -30,8 +30,8 @@ class MovieAdapter(private val context: Context, private val movies: List<Movie>
         private val movieOverview = itemView.findViewById<TextView>(R.id.movieOverview)
 
         fun bind(movie: Movie) {
-            movieTitle = movie.title
-            movieOverview = movie.overview
+            movieTitle.text = movie.title
+            movieOverview.text = movie.overview
         }
     }
 }
