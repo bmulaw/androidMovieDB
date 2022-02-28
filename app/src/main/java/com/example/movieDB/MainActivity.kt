@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+import com.example.moviedb.R
 import com.rkpandey.flixster.Movie
 import com.rkpandey.flixster.MovieAdapter
 import okhttp3.Headers
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.example.movieDB.R.layout.activity_main)
+        setContentView(R.layout.activity_main)
 
         val movieAdapter = MovieAdapter(this, movies)
 
